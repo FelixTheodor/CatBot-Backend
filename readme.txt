@@ -1,13 +1,15 @@
+# CatBot-Backend
+
 This is the source code for the back-end of the CatBot, a german travel-chatbot.
 The whole system is currently hosted at https://travel-catbot.de.
 You can find the source code of the front-end here: ###
 
 ########################################################################################
 
-How-To Use The System:
+## How-To Use The System:
 
 1. Clone this repository
-2. Install spacy for german (versions sd and md): https://spacy.io/
+2. Install [spacy](https://spacy.io/) for german (versions sd and md): https://spacy.io/
 
 3a. If you want to test and debug the whole website, clone and start the front-end as well
 4a. Start the main.py (make sure to be in the same folder to avoid import errors)
@@ -18,5 +20,7 @@ How-To Use The System:
 5b. The tests are incomplete, if you want to, you can experiment with more inputs and states
 
 ##########################################################################################
+
+## Acknowledgements
 
 If you want to contact us, use this mail-address: travel-catbot@web.de
