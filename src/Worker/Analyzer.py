@@ -14,10 +14,10 @@ import os
 
 class Analyzer:
     @load
-    def __init__(self, jsm, *positional_parameters, **keyword_parameters):
+    def __init__(self, jsm, config):
         # since the spacy library costs a lot of performance,
         # a smaller version is used for testing
-        if "isTest" in keyword_parameters and keyword_parameters["isTest"]:
+        if config["big_spacy"] == "false":
             # ignore vector warnings since they spam the log
             os.environ['SPACY_WARNING_IGNORE'] = 'W007'
             import spacy
@@ -487,6 +487,7 @@ class Analyzer:
             if len(newYear) == 1 and not changedYear:
                 year = newYear[0]
                 year = 2000 + int(year[-2:])
+                changedYear = True
 
         # get the current date
         date_format = "%d/%m/%Y"
@@ -506,11 +507,12 @@ class Analyzer:
 
         if day != 0 and month != 0:
             try:
+                today = datetime.today().date()
                 # if the date is in the past and the year is not explicitly set...
-                if self.getPyDateFrom(date) < datetime.now():
+                if self.getPyDateFrom(date) < today:
                     if not changedYear:
                         date[2] += 1  # we should try next year
-                        if self.getPyDateFrom(date) < datetime.now():
+                        if self.getPyDateFrom(date) < today:
                             isInPast = True
                     else:
                         isInPast = True
@@ -525,7 +527,7 @@ class Analyzer:
         this_date = f"{str(date[0]).zfill(2)}/{str(date[1]).zfill(2)}/{str(date[2])}"
         try:
             date_f = datetime.strptime(this_date, date_format)
-            return date_f
+            return date_f.date()
         except ValueError:
             return None
 
