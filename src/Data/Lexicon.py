@@ -157,6 +157,125 @@ class Lexicon():
         OriginAgain = [
             "Alles klar, ich habe dann jetzt alle Informationen gelöscht und wir können wieder von vorne starten!"]
 
+    class OutputNP():
+
+        # Confirmation
+        ConfirmationPos = ["Alles klar."]
+        ConfirmationNeut = ["Alles klar."]
+        ConfirmationThinking = ["Alles klar."]
+        NotUnderstand = [
+            "Eingabe nicht verstanden. Bitte umformulieren"]
+        # Empty - this is never printed but a message to the website to not even create this part of message
+        Empty = ["__empty__"]
+
+        # Greetings
+        FirstGreetings = ["Hallo."]
+        
+        ExplGreetings = [
+            "Dieses System kann nach Reisebussen von FlixBus und Zugverbindungen der Deutschen Bahn suchen (für alle größeren Städte in Deutschland)."]
+        QuestGreetings = ["Ist ein Tutorial notwendig?"]
+
+        # Tutorial
+        TutorialMsg = ["Das System wird nach und nach Fragen zur geplanten Route stellen. Diese sollen von Ihnen im Chat-Fenster beantwortet werden. Der Button oben recht zeigt alle bisher gespeicherten Informationen an."]
+
+        GiveMoreInfosToChatbots = [
+            "Chatbots sind Computerprogramme ,die versuchen, menschliche Kommunikation zu imitieren. Weitere Informationen finden sich im Wikipedia-Artikel:"]
+
+        WikiToChatbots = ["{https://de.wikipedia.org/wiki/Chatbot}[Wikipedia-Chatbots]"]
+
+        # questions
+        AskForUnderstanding = ["Haben Sie alles verstanden?"]
+
+        AskForConfirmation = [
+            "Eingabe nicht eindeutig. Vermutung: ###0###. Ist das richtig?"]
+
+        # AutoCorrection
+        ExplainAutocorrection = [
+            "Stadt oder Name unbekannt."]
+
+        AskForCitys = ["Bitte Stadt erneut eingeben und eine der verfügbaren aus den Vorschlägen wählen:"]
+
+        # Origin
+        AskForOrigin = ["Biite Stadt des Startpunkts eingeben:"]
+
+        AskForDestination = ["Bitte Stadt des Zielpunkts eingeben:"]
+
+        # FlexibleStartpoint
+        AskFlexibleStartpoint = [
+            "Es gibt insgesamt ###0### Städte im näherem Umkreis - beispielsweise mit einem Studententicket erreichbar. Soll eine Überprüfung erfolgen, ob eine Abfahrt von dort eventuell günstiger ist?"]
+
+        FSCookie = ["__empty__"]
+
+        LookingForInfo = ["__empty__"]
+        GiveAllStartpoints = ["Diese Städte wären leicht erreichbar: ###0###"]
+        AskForStartponts = ["Soll sie in die Suche aufgenommen werden?"]
+        # Dates
+        DateInPast = [
+            "Fehler: Datum liegt in der Vergangenheit. Bitte anderes wählen"]
+
+        AskDate = [
+                   "Bitte Datum der Abfahrt eingeben: "]
+
+        FlexDate = ["Die Tage vor und nach der Abfahrt können ebenfalls in die Suche integriert werden."]
+        ConfirmFlex = ["Soll dies geschehen?"]
+
+        # Open
+        ExplainOpen = [
+            "Alle Basis-Informationen vorhanden. Suche kann gestartet werden, oder zusätzliche Informationen eingeben:"]
+        Open4Blank = [
+            "Derzeit sind noch 4 zusätzliche Parameter nicht spezifiziert:\n -###0###\n-###2###\n-###1###\n-###3###\n"]
+        Open3Blank = [
+            "Derzeit sind noch 3 zusätzliche Parameter nicht spezifiziert: ###1###, ###2###, oder ###0###"]
+        Open2Blank = [
+            "Derzeit sind noch 2 zusätzliche Parameter nicht spezifiziert: ###0### und ###1###."]
+        Open1Blank = [
+            "Derzeit sind noch 1 zusätzliche Parameter nicht spezifiziert: ###0###."]
+        OpenQuestion = [
+            "Suche starten? Oder noch etwas anpassen?"]
+        Time = ["Uhrzeit"]
+        Traveller = ["Anzahl Reisende"]
+        Budget = ["Budget"]
+        Transfers = ["Anzahl Umstiege"]
+
+        # Time
+        AskTime = ["Bitte Uhr- oder Tageszeit eingeben:"]
+
+        # Traveller
+        AskTraveller = ["Wie viele Personen fahren mit?"]
+
+        # Budget
+        AskBudget = ["Bitte Maximalpreis eingeben:"]
+
+        # Transfers
+        AskTransfers = ["Bitte maximale Umstiege eingeben:"]
+
+        # Query
+        ExplainQuery = ["Suche nach Verbindungen wird gestartet."]
+
+        BePatient = [
+            "Dies kann einige Zeit dauern. Bitte warten."]
+
+        # Pet
+        PreparePet = [
+            "Eventuell interessieren Sie sich für die CO2-Bilanz Ihrer Reise."]
+
+        Pet = ["Bahnfahrt: ###0### Kilogramm CO2\nBusfahrt: ###1### Kilogramm CO2\nAutofahrt: ###2### Kilogramm CO2\nFlugzeug: ###3###! Kilogramm CO2"]
+
+        Source = [
+            "Weitere Informationen und Grundlage der Berechnung: {https://www.umweltbundesamt.de/bild/vergleich-der-durchschnittlichen-emissionen-0}[Umweltbundesamt]"]
+
+        # End-States
+        AskForStart = ["Weitere Suche starten?"]
+
+        BestWishes = [
+            "Okay."]
+
+        GoodBye = ["Bis zum nächsten mal!"]
+
+        # Restart
+        OriginAgain = [
+            "Informationen zurückgesetzt."]
+
     # Internals is for strings with system-intern meaning & processing
     class Internals():
 

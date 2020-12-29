@@ -12,12 +12,14 @@ from src.Manager.AutoFillManager import getStationNames
 configFile = open('config.txt', 'r')
 config = {}
 for line in configFile.readlines():
-    key, value = line.split(' ')
+    key, value = line.split(':')
+    if "\n" in value:
+        value= value[:-1]
     config[key] = value
 
-HOSTNAME = ""
+HOSTNAME = "localhost" if config['develop'] == 'true' else ""
 SERVERPORT = 8080 if config['develop'] == 'true' else 3000
-DM = DialogManager()
+DM = DialogManager(config)
 
 
 class ThreadingSimpleServer(ThreadingMixIn, HTTPServer):

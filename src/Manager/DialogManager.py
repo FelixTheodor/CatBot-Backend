@@ -3,6 +3,7 @@ from src.Packages.InformationPackage import InformationPackage
 from src.Manager.JSONManager import JSONManager
 from src.Worker.Analyzer import Analyzer
 from src.Worker.AnswerFormulator import AnswerFormulator
+from src.Worker.AnswerFormulatorNoPers import AnswerFormulatorNoPers
 from src.Data.Lexicon import Lexicon, ChooseRandomAnswer
 from src.Worker.ErrorChecker import ErrorChecker
 
@@ -11,12 +12,15 @@ from src.Worker.ErrorChecker import ErrorChecker
 
 
 class DialogManager():
-    def __init__(self):
+    def __init__(self, config):
         print("\nLoading Components of DialogManager:")
         self.jsm = JSONManager()
         self.err = ErrorChecker()
-        self.af = AnswerFormulator(self.jsm)
-        self.ana = Analyzer(self.jsm)
+        if config["personality"] == "true":
+            self.af = AnswerFormulator(self.jsm)
+        else:
+            self.af = AnswerFormulatorNoPers(self.jsm)
+        self.ana = Analyzer(self.jsm, config)
         print("\n\nDialogManager is initialized.")
 
     # Main-Method
