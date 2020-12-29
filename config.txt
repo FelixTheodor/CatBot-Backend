@@ -1,1 +1,3 @@
-develop true
+develop:true
+personality:false
+big_spacy:false
