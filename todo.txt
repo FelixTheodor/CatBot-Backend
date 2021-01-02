@@ -1,0 +1,7 @@
+1. UID aus Link abgreifen und in InfoPackage schreiben (Benennung siehe IP-Klasse hier), dann umleiten auf botinstanz
+2. Footer von der Website entfernen (auf eignem Branch)
+3. Non-Personality-Catbot auf eigenem Branch bauen:
+    -kein Profilbild
+    -grauer Hintergrund
+4. Instanz mit und ohne pers auf subsites deployen(aber eine unkenntliche url bitte, bspw. travel-catbot.de/b5a)
+5. Bugfix: Reise von Bremen nach Hamburg, morgen, findet keine Ergebnisse...

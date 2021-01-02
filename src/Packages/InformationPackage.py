@@ -15,6 +15,7 @@ class InformationPackage(Package):
     transfers = -1  # int
     state = ""  # string
     repeat = False  # bool
+    uid = 000 # int
 
     def __init__(self):
         super().__init__()
@@ -29,6 +30,7 @@ class InformationPackage(Package):
         self.transfers = -1  # int
         self.state = ""  # string
         self.repeat = False  # bool
+        self.uid = self.uid
 
     # calls all sets from dict
     def setFromJSON(self, jsn):
@@ -40,6 +42,10 @@ class InformationPackage(Package):
         self.setTime(jsn["time"])
         self.setTransfers(jsn["transfers"])
         self.setTraveller(jsn["traveller"])
+        try:
+            self.setUID(jsn["uid"])
+        except KeyError:
+            self.setUID("no_ID")
 
     # returns true if all optional parameters have values
     def hasNoBlanks(self):
@@ -47,6 +53,13 @@ class InformationPackage(Package):
             self.time and self.traveller != -1
             and self.budget != -1 and self.transfers != -1
         )
+
+    def setUID(self, uid):
+        self.uid = uid
+    
+    def getUID(self):
+        return self.uid
+
 
     # origin
     def setOrigin(self, origin):

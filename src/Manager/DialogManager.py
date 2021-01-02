@@ -6,6 +6,7 @@ from src.Worker.AnswerFormulator import AnswerFormulator
 from src.Worker.AnswerFormulatorNoPers import AnswerFormulatorNoPers
 from src.Data.Lexicon import Lexicon, ChooseRandomAnswer
 from src.Worker.ErrorChecker import ErrorChecker
+from src.Worker.Logger import Logger
 
 # this class is the Entrypoint for the NLU
 # holds all the components and manages its interactions
@@ -21,6 +22,7 @@ class DialogManager():
         else:
             self.af = AnswerFormulatorNoPers(self.jsm)
         self.ana = Analyzer(self.jsm, config)
+        self.log = Logger()
         print("\n\nDialogManager is initialized.")
 
     # Main-Method
@@ -35,6 +37,8 @@ class DialogManager():
         returnAP = self.getAnswerFromAF(returnIP)
         # check for errors in the answer
         returnIP, returnAP = self.checkForErrors(returnIP, returnAP)
+        # log results
+        self.log.log(returnIP, returnAP, message)
         # create an json that can be returned to the website
         returnJSON = self.jsm.createJSONFromPackages(
             returnAP.toJSON(), returnIP.toJSON())
