@@ -17,10 +17,8 @@ class DialogManager():
         print("\nLoading Components of DialogManager:")
         self.jsm = JSONManager()
         self.err = ErrorChecker()
-        if config["personality"] == "true":
-            self.af = AnswerFormulator(self.jsm)
-        else:
-            self.af = AnswerFormulatorNoPers(self.jsm)
+        self.afp = AnswerFormulator(self.jsm)
+        self.afn = AnswerFormulatorNoPers(self.jsm)
         self.ana = Analyzer(self.jsm, config)
         self.log = Logger()
         print("\n\nDialogManager is initialized.")
@@ -34,7 +32,7 @@ class DialogManager():
         # trigger the analysis via own analyzer
         returnIP = self.startAnalysis(message, ipack)
         # trigger the answer-formulator to get an answer
-        returnAP = self.getAnswerFromAF(returnIP)
+        returnAP = self.getAnswerFromAF(returnIP, ipack.getPers())
         # check for errors in the answer
         returnIP, returnAP = self.checkForErrors(returnIP, returnAP)
         # log results
@@ -45,8 +43,11 @@ class DialogManager():
 
         return returnJSON
 
-    def getAnswerFromAF(self, ipack):
-        ap = self.af.createAnswer(ipack)
+    def getAnswerFromAF(self, ipack, pers):
+        if pers:
+            ap = self.afp.createAnswer(ipack)
+        else:
+            ap = self.afn.createAnswer(ipack)
 
         if ap is not None:
             if ap.filled:

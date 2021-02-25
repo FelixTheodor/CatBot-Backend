@@ -1,3 +1,2 @@
 develop:true
-personality:true
 big_spacy:false

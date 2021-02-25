@@ -16,6 +16,7 @@ class InformationPackage(Package):
     state = ""  # string
     repeat = False  # bool
     uid = 000 # int
+    pers = True
 
     def __init__(self):
         super().__init__()
@@ -30,7 +31,6 @@ class InformationPackage(Package):
         self.transfers = -1  # int
         self.state = ""  # string
         self.repeat = False  # bool
-        self.uid = self.uid
 
     # calls all sets from dict
     def setFromJSON(self, jsn):
@@ -42,6 +42,10 @@ class InformationPackage(Package):
         self.setTime(jsn["time"])
         self.setTransfers(jsn["transfers"])
         self.setTraveller(jsn["traveller"])
+        try:
+            self.setPers(jsn["pers"])
+        except:
+            self.setPers(False)
         try:
             self.setUID(jsn["uid"])
         except KeyError:
@@ -59,6 +63,13 @@ class InformationPackage(Package):
     
     def getUID(self):
         return self.uid
+    
+    def setPers(self, pers):
+        if isinstance(pers, bool):
+            self.pers = pers
+    
+    def getPers(self):
+        return self.pers
 
 
     # origin
