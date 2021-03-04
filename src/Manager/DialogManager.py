@@ -3,7 +3,7 @@ from src.Packages.InformationPackage import InformationPackage
 from src.Manager.JSONManager import JSONManager
 from src.Worker.Analyzer import Analyzer
 from src.Worker.AnswerFormulator import AnswerFormulator
-from src.Worker.AnswerFormulatorNoPers import AnswerFormulatorNoPers
+from src.Worker.AnswerFormulatorNP import AnswerFormulatorNP
 from src.Data.Lexicon import Lexicon, ChooseRandomAnswer
 from src.Worker.ErrorChecker import ErrorChecker
 from src.Worker.Logger import Logger
@@ -18,7 +18,7 @@ class DialogManager():
         self.jsm = JSONManager()
         self.err = ErrorChecker()
         self.afp = AnswerFormulator(self.jsm)
-        self.afn = AnswerFormulatorNoPers(self.jsm)
+        self.afn = AnswerFormulatorNP(self.jsm)
         self.ana = Analyzer(self.jsm, config)
         self.log = Logger()
         print("\n\nDialogManager is initialized.")

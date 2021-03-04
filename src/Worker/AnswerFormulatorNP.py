@@ -4,8 +4,7 @@ from src.Worker.Helper import load, computeCO2
 import time
 
 
-class AnswerFormulatorNoPers:
-    @load
+class AnswerFormulatorNP:
     def __init__(self, jsn):
         self.jsn = jsn
 
