@@ -8,7 +8,6 @@ class AnswerFormulator:
     @load
     def __init__(self, jsn):
         self.jsn = jsn
-        time.sleep(1)
 
     def createAnswer(self, ipack):
         ap = AnswerPackage()

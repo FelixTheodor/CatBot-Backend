@@ -64,7 +64,7 @@ class Lexicon():
         AskForOrigin = ["Dann schieß mal los! Von wo möchtest du deine Fahrt beginnen?",
                         "Von wo aus möchtest du losfahren?", "Nenn mir bitte als nächstes die Stadt, von der aus du losfahren möchtest."]
 
-        AskForDestination = ["Und, hast du dir auch schon überlegt, wo es hingehen soll?",
+        AskForDestination = ["Und, hast du dir auch schon überlegt, wo es hingehen soll? Nenne bitte die Zielstadt:", 
                              "Und wo soll's für dich hingehen?", "So, dann bräuchte ich jetzt noch deinen Zielort:"]
 
         # FlexibleStartpoint
@@ -259,7 +259,7 @@ class Lexicon():
         PreparePet = [
             "Eventuell interessieren Sie sich für die CO2-Bilanz Ihrer Reise."]
 
-        Pet = ["Bahnfahrt: ###0### Kilogramm CO2\nBusfahrt: ###1### Kilogramm CO2\nAutofahrt: ###2### Kilogramm CO2\nFlugzeug: ###3###! Kilogramm CO2"]
+        Pet = ["Bahnfahrt: ###0### Kilogramm CO2\nBusfahrt: ###1### Kilogramm CO2\nAutofahrt: ###2### Kilogramm CO2\nFlugzeug: ###3### Kilogramm CO2"]
 
         Source = [
             "Weitere Informationen und Grundlage der Berechnung: {https://www.umweltbundesamt.de/bild/vergleich-der-durchschnittlichen-emissionen-0}[Umweltbundesamt]"]
@@ -337,12 +337,12 @@ class Lexicon():
         DecreaseHour = ["viertel", "halb"]
 
         # topics for open
-        Time = ["uhr", "zeit", "abfahrt", "reisen",
-                "früh", "termin", "morgen", "mittag", "abend"]
+        Time = ["uhr", "zeit", "abfahrt", "reisen", "einstellen",
+                "früh", "termin", "morgen", "mittag", "abend", "abfahrtstermin"]
         Traveller = ["person", "mitnehm", "wir", "gemeinsam", "fahr",
-                     "anzahl", "leute", "reise", "mehr", "zwei", "drei", "dritt", "allein"]
+                     "anzahl", "leute", "reise", "mehr", "zwei", "drei", "dritt", "allein", "reisende"]
         Transfers = ["umstieg", "umsteig", "stopp",
-                     "warten", "halt", "pause", "toleranz"]
+                     "warten", "halt", "pause", "toleranz", "anzahl"]
         Money = ["geld", "kasse", "budget", "zahlen", "preis", "euro"]
         Search = ["suche", "query", "los", "such",
                   "beginn", "start", "verbindung", "zeigen", "bereit"]

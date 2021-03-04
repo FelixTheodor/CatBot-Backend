@@ -12,7 +12,7 @@ import time
 
 
 class MyAnalyzeTests(unittest.TestCase):
-    Ana = Analyzer(JSONManager(), isTest=True)
+    Ana = Analyzer(JSONManager(), {"big_spacy":"false"})
 
     def setUp(self):
         self.startTime = time.time()
@@ -20,6 +20,15 @@ class MyAnalyzeTests(unittest.TestCase):
     def tearDown(self):
         t = time.time() - self.startTime
         print('%s: %.3f' % (self.id(), t))
+    
+    def test_bug(self):
+        IPack = InformationPackage()
+        state = Lexicon.Internals.Open
+        IPack.setState(state)
+        msg = "Anzahl Umstiege"
+        self.assertTrue(self.Ana.analyze(msg, IPack).state == Lexicon.Internals.Transfers)
+        msg = "Anzahl Reisende"
+        self.assertTrue(self.Ana.analyze(msg, IPack).state == Lexicon.Internals.Traveller)
 
     def testBasicType(self):
         IPack = InformationPackage()
@@ -79,12 +88,12 @@ class MyAnalyzeTests(unittest.TestCase):
     def testDate(self):
         IPack = InformationPackage()
         state = Lexicon.Internals.FlexibleDate
-        msgs = ["03.10.2020", "03 10", "03/10", "03.10",
+        msgs = ["03.10.2021", "03 10", "03/10", "03.10",
                 "3 Oktober", "3. Oktober", "3.Oktober"]
         for msg in msgs:
             IPack.state = Lexicon.Internals.Date
             self.assertTrue(self.Ana.analyze(
-                msg, IPack).date == [[3, 10, 2020]], msg=f"Message: {msg}")
+                msg, IPack).date == [[3, 10, 2021]], msg=f"Message: {msg}")
         msgs = ["morgen", "übermorgen", "10.02"]
         for msg in msgs:
             IPack.state = Lexicon.Internals.Date
@@ -136,7 +145,7 @@ class MyAnalyzeTests(unittest.TestCase):
         state = Lexicon.Internals.Time
         for msg in msgs:
             IPack.state = Lexicon.Internals.Open
-            self.assertTrue(self.Ana.analyze(msg, IPack).state == state)
+            self.assertTrue(self.Ana.analyze(msg, IPack).state == state, msg=f"{msg}")
 
         msgs = ["ich würde gerne nicht so oft umsteigen",
                 "meine toleranz ist gering wegen halten", "viele stopps und ich raste aus!"]

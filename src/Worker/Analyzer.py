@@ -44,7 +44,7 @@ class Analyzer:
         r_ipack = copy.deepcopy(ipack)
 
         # spacy-analysis
-        analyzed_msg = self.spacy(message)
+        analyzed_msg = self.spacy(message.lower())
         tokens_msg = [tok.lower_ for tok in analyzed_msg]
 
         # start the chat
@@ -203,12 +203,12 @@ class Analyzer:
                 if self.AnswerIsAboutTime(tokens_msg):
                     # compute vector-similarity between keywords of the state and the input
                     sim_time = analyzed_msg.similarity(self.spacy(
-                        "".join(Lexicon.Internals.Time)))
+                        "".join(Lexicon.Analyze.Time)))
                     possNextStates.append([sim_time, Lexicon.Internals.Time])
             if ipack.traveller == -1:
                 if self.AnswerIsAboutTraveller(tokens_msg):
                     sim_travel = analyzed_msg.similarity(self.spacy(
-                        "".join(Lexicon.Internals.Traveller)))
+                        "".join(Lexicon.Analyze.Traveller)))
                     possNextStates.append(
                         [sim_travel, Lexicon.Internals.Traveller])
             if ipack.budget == -1:

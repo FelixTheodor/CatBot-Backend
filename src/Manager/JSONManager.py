@@ -16,7 +16,6 @@ class JSONManager:
         f = open("src/Data/stations.json")
         self.data = json.load(f)
         f.close()
-        time.sleep(1)
 
     def createJSONFromPackages(self, apackage, ipackage):
         dic = {"answerPackage": json.loads(
