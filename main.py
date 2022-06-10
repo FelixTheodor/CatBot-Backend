@@ -1,3 +1,5 @@
+#!/usr/bin python3
+
 from http.server import BaseHTTPRequestHandler, HTTPServer
 from socketserver import ThreadingMixIn
 import ssl
